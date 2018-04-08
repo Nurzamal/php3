@@ -8,11 +8,10 @@ use YoutubeDl\Exception\NotFoundException;
 use YoutubeDl\Exception\PrivateVideoException;
 
 $dl = new YoutubeDl([
-    'continue' => true, // force resume of partially downloaded files. By default, youtube-dl will resume downloads if possible.
+    'continue' => true, // принудительное возобновление частично загруженных файлов. 
     'format' => 'bestvideo',
 ]);
-// For more options go to https://github.com/rg3/youtube-dl#user-content-options
-
+//для этого питон нужен? 
 $dl->setDownloadPath('/home/user/downloads');
 // Enable debugging
 /*$dl->debug(function ($type, $buffer) {
@@ -23,15 +22,15 @@ $dl->setDownloadPath('/home/user/downloads');
     }
 });*/
 try {
-    $video = $dl->download('https://www.youtube.com/watch?v=oDAw7vW7H0c');
-    echo $video->getTitle(); // Will return Phonebloks
+    $video = $dl->download('https://www.youtube.com/watch?v=nLg-s79-ob0');
+    echo $video->getTitle(); //вернет песню 23:45 Feat. 5ivesta Family
     // $video->getFile(); // \SplFileInfo instance of downloaded file
 } catch (NotFoundException $e) {
-    // Video not found
+    // Видео не найдено
 } catch (PrivateVideoException $e) {
-    // Video is private
+    // Видео закрыто
 } catch (CopyrightException $e) {
-    // The YouTube account associated with this video has been terminated due to multiple third-party notifications of copyright infringement
+    // Учетная запись YouTube
 } catch (\Exception $e) {
-    // Failed to download
+    // ошибка не удалось загрузить 
 }
