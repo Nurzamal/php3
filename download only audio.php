@@ -1,5 +1,5 @@
 # php
-Download only audio (requires ffmpeg or avconv and ffprobe or avprobe)
+Загружать только аудио (requires ffmpeg or avconv and ffprobe or avprobe)
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
@@ -13,4 +13,4 @@ $dl = new YoutubeDl([
 ]);
 $dl->setDownloadPath('/home/user/downloads');
 
-$video = $dl->download('https://www.youtube.com/watch?v=oDAw7vW7H0c');
+$video = $dl->download('https://www.youtube.com/watch?v=nLg-s79-ob0');
